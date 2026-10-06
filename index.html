@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interest Calculator</title>
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .form-group input {
+            margin: 5px;
+            padding: 8px;
+        }
+        .result-box {
+            margin-top: 20px;
+            display: inline-block;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: rgb(47, 2, 2);">Simple Interest Calculator</h1>
+        
+        <form method="post" class="form-group">
+            <!-- Fixed: Changed name attributes to match your backend variables -->
+            <input type="number" step="any" name="p" placeholder="Principal Amount" required>
+            <input type="number" step="any" name="t" placeholder="Time (Years)" required>
+            <input type="number" step="any" name="r" placeholder="Rate (%)" required>
+            <button type="submit">Calculate Interest</button>
+        </form>
+
+        {# Display output #}
+        {% if result %}
+            <hr style="width: 50%;">
+            <div class="result-box">
+                <h3>Result:</h3>
+                <p><b>Principal:</b> {{ p }}</p>
+                <p><b>Time:</b> {{ t }}</p>
+                <p><b>Rate:</b> {{ r }}%</p>
+                <p><b>Simple Interest:</b> ${{ result }}</p>
+                <p><b>Total Amount:</b> ${{ total }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
